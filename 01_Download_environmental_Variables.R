@@ -19,8 +19,11 @@ library(ncdf4)
 
 # ------------Set parameters to subset and run the download -------------
 
-CopernicusMarine_uid = "lkrger"           #ID
-CopernicusMarine_pwd = "1029MarineData!"  #password
+CopernicusMarine_uid = "XXXXXX"           #ID
+CopernicusMarine_pwd = "XXXXXX"  #password
+
+
+
 
 
 
@@ -110,12 +113,26 @@ copernicus_download_motu(
   variable = "Sea water potential temperature",
   output = "netcdf",
   region = region, 
-  timerange = c("2010-01-01 12:00:00","2020-12-31 12:00:00"),
+  timerange = c("2010-01-01 12:00:00","2015-12-31 12:00:00"),
   sub_variables = c("thetao_mean"),
   verticalrange = c(0, 100)
 )
 
 
+
+copernicus_download_motu(
+  username = CopernicusMarine_uid,
+  password = CopernicusMarine_pwd,
+  destination = "C:/D1MPA_Review/EnviData",
+  product = "GLOBAL_REANALYSIS_PHY_001_026" ,
+  layer = "global-reanalysis-phy-001-026-grepv1-monthly",
+  variable = "Sea water potential temperature",
+  output = "netcdf",
+  region = region, 
+  timerange = c("2016-01-01 12:00:00","2020-12-31 12:00:00"),
+  sub_variables = c("thetao_mean"),
+  verticalrange = c(0, 100)
+)
 
 
 # mixed layer depth
@@ -161,7 +178,21 @@ copernicus_download_motu(
   variable = "Wind speed",
   output = "netcdf",
   region = region, 
-  timerange = c("2010-01-01 12:00:00","2020-12-31 12:00:00"),
+  timerange = c("2010-01-01 12:00:00","2015-12-31 12:00:00"),
+  sub_variables = c("WIND"),
+  verticalrange = c(0, 20000)
+)
+
+copernicus_download_motu(
+  username = CopernicusMarine_uid,
+  password = CopernicusMarine_pwd,
+  destination = "C:/D1MPA_Review/EnviData",
+  product = "WIND_GLO_PHY_CLIMATE_L4_MY_012_003" ,
+  layer = "cmems_obs-wind_glo_phy_my_l4_P1M",
+  variable = "Wind speed",
+  output = "netcdf",
+  region = region, 
+  timerange = c("2016-01-01 12:00:00","2020-12-31 12:00:00"),
   sub_variables = c("WIND"),
   verticalrange = c(0, 20000)
 )
